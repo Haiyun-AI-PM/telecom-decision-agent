@@ -1,0 +1,51 @@
+{
+  "name": "telecom-decision-v06",
+  "kind": "documented_agent_workflow",
+  "native_visual_workflow_import_supported": false,
+  "execution": "CogSeed agent.workflow + bound Skill + KB tools + conversation renderer",
+  "steps": [
+    {
+      "id": "skill",
+      "asset": "assets/skill/telecom-decision-evidence-v06/SKILL.md"
+    },
+    {
+      "id": "rag",
+      "asset": "assets/rag/telecom-demo-rules.md",
+      "tools": [
+        "kb_search",
+        "kb_read"
+      ]
+    },
+    {
+      "id": "fixture",
+      "asset": "scenario/03_demo_fixture.json"
+    },
+    {
+      "id": "decision",
+      "asset": "assets/agent/workflow.md"
+    },
+    {
+      "id": "schema",
+      "asset": "scenario/04_decision_response_schema.json",
+      "status": "prompt contract and external validation; renderer performs presentation-shape checks"
+    },
+    {
+      "id": "render",
+      "requires": "CogSeed DecisionResponse renderer and decision app UI"
+    },
+    {
+      "id": "followup",
+      "execution": "same CogSeed conversation and selected Agent"
+    }
+  ],
+  "failure_routes": {
+    "no_rules": "blocked",
+    "revoked_personal_evidence": "blocked",
+    "invalid_render_shape": "raw response / recoverable display error"
+  },
+  "claim_limits": [
+    "不是已创建的原生可视化工作流资产",
+    "JSON Schema 自动修复节点尚未在 CogSeed 中独立验证",
+    "What-if 分支目前由对话约定和响应标识表达，不宣称平台已持久化分支实体"
+  ]
+}

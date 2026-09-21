@@ -1,0 +1,250 @@
+{
+  "schema_version": "cogseed.telecom.demo.v1",
+  "fixture_id": "TELECOM-DEMO-A-BRANCH-001",
+  "fixture_status": "demo_fixture",
+  "display_notice": "脱敏演示案例",
+  "organization": {
+    "name": "家庭业务A网格",
+    "level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "period": "本期",
+    "headcount": 10,
+    "role_structure": {
+      "operations": 7,
+      "marketing": 3
+    }
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1.0,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1.0,
+      "display": "31%"
+    },
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销业务量指数",
+      "value": 1.02,
+      "benchmark": 1.0,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销结果指数",
+      "value": 0.49,
+      "benchmark": 1.0,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1.0,
+      "display": "61%"
+    }
+  ],
+  "decision": {
+    "title": "人员总量先保持，优先重排高价值任务与机会",
+    "summary": "本期保持当前网格10人和7:3岗位结构，先做网格内部任务重排，暂不申请跨网格支援。",
+    "headcount_action": "保持10人",
+    "task_action": "内部重排",
+    "support_action": "暂不申请跨网格支援"
+  },
+  "needle": "高价值任务和机会没有同时按产品价值、人员能力、触点与同类实绩进行匹配。",
+  "root_causes": [
+    {
+      "root_cause_id": "RC-OPS-01",
+      "role": "operations",
+      "title": "复杂履约任务结构与承接匹配",
+      "statement": "6项复杂家庭网络履约任务中，4项未优先进入技能和当前负荷都匹配的人员队列，形成延期和返工风险。",
+      "impact_value": -52,
+      "impact_unit": "index_point",
+      "status": "supported_by_fixture"
+    },
+    {
+      "root_cause_id": "RC-MKT-01",
+      "role": "marketing",
+      "title": "机会承接与转化匹配",
+      "statement": "18条高意向家庭客户机会中，仅5条分配给同产品同客群转化更稳的营销A；营销C承接7条，仅1条形成有效订单。",
+      "impact_value": -45,
+      "impact_unit": "index_point",
+      "status": "supported_by_fixture"
+    }
+  ],
+  "capacity_check": {
+    "status": "covered_after_reassignment",
+    "statement": "6项复杂任务可由现有7名装维在本期内覆盖，故障、巡检和应急保障预留不受影响；3名营销可覆盖当前机会池。"
+  },
+  "people": [
+    {
+      "person_id": "OPS-A",
+      "display_name": "装维A",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": 94.34,
+      "strengths": ["复杂家庭网络", "一次交付", "现场带教"],
+      "verdict": "主承接＋带教",
+      "action": "主承接复杂家庭网络工单，并带装维B完成2项真实任务。"
+    },
+    {
+      "person_id": "OPS-B",
+      "display_name": "装维B",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": -22.12,
+      "strengths": ["基础履约"],
+      "risks": ["复杂场景仍需结对", "质量与跨期调整"],
+      "verdict": "结对战训",
+      "action": "暂不独立承接复杂组网，随装维A完成2项真实工单后复评。"
+    },
+    {
+      "person_id": "OPS-C",
+      "display_name": "装维C",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": 66.60,
+      "verdict": "保持",
+      "action": "维持融合宽带和家庭安防协同任务。"
+    },
+    {
+      "person_id": "OPS-D",
+      "display_name": "装维D",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": 64.50,
+      "verdict": "保障预留",
+      "action": "保持标准家庭组网任务并预留保障能力。"
+    },
+    {
+      "person_id": "OPS-E",
+      "display_name": "装维E",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": 33.15,
+      "verdict": "质量复盘",
+      "action": "复盘历史质量扣减，控制复杂任务派发。"
+    },
+    {
+      "person_id": "OPS-F",
+      "display_name": "装维F",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": -0.80,
+      "verdict": "负荷控制",
+      "action": "优先修障与应急，控制新增在途任务。"
+    },
+    {
+      "person_id": "OPS-G",
+      "display_name": "装维G",
+      "role": "operations",
+      "points_type": "履约积分",
+      "points": 7.30,
+      "verdict": "专项战训",
+      "action": "完成复杂家庭网络专项战训后再扩大任务范围。"
+    },
+    {
+      "person_id": "MKT-A",
+      "display_name": "营销A",
+      "role": "marketing",
+      "points_type": "贡献积分",
+      "points": 368,
+      "strengths": ["家庭宽带", "家庭组网", "电话转化"],
+      "verdict": "主承接＋带教",
+      "action": "优先承接高意向家庭客户，并带营销B/营销C复盘话术。"
+    },
+    {
+      "person_id": "MKT-B",
+      "display_name": "营销B",
+      "role": "marketing",
+      "points_type": "贡献积分",
+      "points": 333,
+      "verdict": "真实任务战训",
+      "action": "在营销A带教下完成同产品、同客群真实任务。"
+    },
+    {
+      "person_id": "MKT-C",
+      "display_name": "营销C",
+      "role": "marketing",
+      "points_type": "贡献积分",
+      "points": 286,
+      "verdict": "聚焦转化",
+      "action": "聚焦画像明确的家庭组网机会，按统一话术完成触达。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-OPS-01",
+      "title": "装维A带装维B完成复杂家庭网络工单",
+      "owner": "OPS-A",
+      "targets": ["OPS-B"],
+      "objects": "6项复杂家庭网络履约任务",
+      "products": ["家庭组网产品族"],
+      "validation": ["一次竣工", "返工", "准时完成"],
+      "approval_status": "pending_confirmation"
+    },
+    {
+      "action_id": "ACT-MKT-01",
+      "title": "营销A主承接高意向家庭客户并带营销B/营销C复盘话术",
+      "owner": "MKT-A",
+      "targets": ["MKT-B", "MKT-C"],
+      "objects": "高意向家庭客户机会池",
+      "products": ["家庭宽带", "家庭组网", "家庭安防"],
+      "validation": ["有效订单", "早期保有"],
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": ["任务执行", "有效订单", "一次竣工"]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": ["积分兑现", "质量结果", "早期保有"]
+    },
+    {
+      "checkpoint": "T+2",
+      "metrics": ["撤单", "离网", "最终在网"]
+    }
+  ],
+  "representative_ledgers": [
+    {
+      "person_id": "OPS-A",
+      "ledger_type": "operations_fulfilment",
+      "items": [
+        {"event": "复杂家庭网络标准包竣工", "signed_points": 90.00},
+        {"event": "主设备激活调测", "signed_points": 4.34}
+      ],
+      "total": 94.34
+    },
+    {
+      "person_id": "MKT-A",
+      "ledger_type": "marketing_contribution",
+      "items": [
+        {"event": "家庭宽带有效订单", "signed_points": 117},
+        {"event": "家庭组网有效订单", "signed_points": 94},
+        {"event": "家庭安防有效订单", "signed_points": 74},
+        {"event": "移动产品贡献", "signed_points": 83}
+      ],
+      "total": 368
+    }
+  ],
+  "guardrails": {
+    "ai_can_execute": false,
+    "ai_can_move_people": false,
+    "ai_can_enable_rules": false,
+    "feedback_requires_review": true,
+    "raw_points_cross_role_comparison_forbidden": true
+  }
+}

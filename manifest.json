@@ -1,13 +1,53 @@
 {
-  "status": "evidence_draft_not_runnable",
+  "status": "cogseed_native_assets_ready_teacher_reproduction_pending",
   "files": [
     {
       "path": ".gitignore",
-      "sha256": "37a467f8e2d587e73c629663a5e92bc8893a6f87d91d7bb16d7695d5591f0499"
+      "sha256": "d3a81b0a829112e2ed4e73426fc3e91dba441b4072fdb56ee3a110774b33fd7a"
     },
     {
       "path": "README.md",
-      "sha256": "cfb0893e9b939d723cab8c110355064b8ceecf215ed12ff0f6bc59f26533c6c1"
+      "sha256": "7fc8955a0fd7f3d67811a43d730dd8dbbf483b1ed43900943cee1c6a858c2d4b"
+    },
+    {
+      "path": "assets/agent/cogseed-agent-snapshot.json",
+      "sha256": "b85313d1d85a88d2459cd37121b368c01e08d37c1d3ed2d3a152a490911959b8"
+    },
+    {
+      "path": "assets/agent/create-in-cogseed.md",
+      "sha256": "bb5948218ae29f09d402816fcba7edcc006eabdb128814ee51f0c85ed6f56c25"
+    },
+    {
+      "path": "assets/agent/system-prompt.md",
+      "sha256": "2544d2ff226dda6ba6cfb9f1142a3081876c98b40fcf0f1b1b18a4bf82388f07"
+    },
+    {
+      "path": "assets/agent/workflow.md",
+      "sha256": "5ec93534f57d7585e2aebf4da1581e5c6e3698e3c473a6e9d328642ebffaaa4d"
+    },
+    {
+      "path": "assets/rag/telecom-demo-rules.md",
+      "sha256": "7a2ab5581464686366d8262dec70c6ec53901fe0901603ae1b41b3cf8bf6265f"
+    },
+    {
+      "path": "assets/skill/telecom-decision-evidence-v06/SKILL.md",
+      "sha256": "b7828b5b4104f02262c4e8c0b66b2fbe1837c7ba66c8236ddc2d2010a8d7ba99"
+    },
+    {
+      "path": "assets/workflow.json",
+      "sha256": "3444b117ad303fcc234229fa7236da12a20da96b155df1bf12e5473c229e56dc"
+    },
+    {
+      "path": "docs/CLIENT-BUILD.md",
+      "sha256": "1dfcd1e27c852b589d37b64e1e7075d79ef971ef033404dec069cf2267d1a5ab"
+    },
+    {
+      "path": "docs/COGSEED-IMPORT.md",
+      "sha256": "ec5c0f40a2748dab189583bebe4ccf2bca51438dbcc8c3728ebcef46a74edf74"
+    },
+    {
+      "path": "docs/TEACHER-CHECK.md",
+      "sha256": "a740a8d63257e91b91e1fca7a2d6c14d21cf3937da4063a04e19ca7ede93db8c"
     },
     {
       "path": "evidence/response-01.json",
@@ -46,6 +86,18 @@
       "sha256": "67ee062fe111e5e51ed6e4cb02fa71abbbd2f668442ae1ff3b54a36a361732d9"
     },
     {
+      "path": "imports/live-inputs/00_business_brief.md",
+      "sha256": "8fa41ce70f925d97e25c622851d811d591b5be14dd9e2058a87d0c6b0edf80f9"
+    },
+    {
+      "path": "imports/live-inputs/03_demo_fixture.json",
+      "sha256": "c924b095acbeb73329f3e3f94f63f42bea456dbbbef54a1df06eddd1ba47be3c"
+    },
+    {
+      "path": "imports/live-inputs/04_decision_response_schema.json",
+      "sha256": "1a00b418bd50f2691d9fbc55a19e99c329e4bfa624436083519a15815b20c355"
+    },
+    {
       "path": "scenario/00_business_brief.md",
       "sha256": "8fa41ce70f925d97e25c622851d811d591b5be14dd9e2058a87d0c6b0edf80f9"
     },
@@ -68,6 +120,10 @@
     {
       "path": "scenario/06_handoff_checklist.md",
       "sha256": "a8b70e8b2c84051aafdddc24328555fbdd5e00b23c02ed83a103cbe3a8c1d616"
+    },
+    {
+      "path": "tools/verify_bundle.py",
+      "sha256": "657cb695a3f2c339eea2b28386ec769362ecb8e96dc050262490bf68cb7988e2"
     }
   ]
 }
