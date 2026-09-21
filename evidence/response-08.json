@@ -1,0 +1,144 @@
+{
+  "response_mode": "delta",
+  "answer_text": "已记录约束变更：营销C本周不可用。该约束为候选修订，后续追问继续保留、不恢复原安排，是否生效待负责人确认。\n一、受影响的营销侧安排：原 ACT-MKT-01 为营销A主承接、营销B/营销C跟训，现候选修订为营销A单一主承接、营销B在带教下承接同产品同客群真实任务；营销C本周不安排新任务，其原承接的7条机会需重分。营销侧按贡献积分分账，营销C的286贡献积分仅用于解释其历史订单构成，不得作为排名或替岗依据。\n二、证据缺口：缺少营销C可用工时、剩余两人承接上限与时限、待重分机会的画像证据，本周是否仍能覆盖18条高意向机会池属待确认，不宣称够用（RULE-02/RULE-04）。\n三、基础结论与装维侧不变：总量保持10人、7:3岗位结构、网格内重排、暂不申请跨网格支援；根因 RC-MKT-01（-45 指数点）性质未变，少一人会放大暴露；ACT-OPS-01 不受影响。\n以上均为待负责人确认的候选调整，AI不执行真实调人、派单或改规则。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "营销C本周不可用：营销侧候选修订，基础结论不变",
+    "summary": "记录人员不可用约束变更，营销侧安排由三人改为两人候选修订，营销C本周排除且后续保留该约束；总量与装维侧结论不变。",
+    "headcount_action": "保持10人（基础不变）",
+    "task_action": "营销侧修订候选：营销A主承接、营销B跟训，营销C本周排除",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "fixture_supported"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销业务量指数",
+      "value": 1.02,
+      "benchmark": 1,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销结果指数",
+      "value": 0.49,
+      "benchmark": 1,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1,
+      "display": "61%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-MKT-01",
+      "title": "机会承接与转化匹配",
+      "statement": "18条高意向家庭客户机会中，仅5条分配给同产品同客群转化更稳的营销A；营销C承接7条仅1条形成有效订单。少一人会放大机会承接与转化的暴露。",
+      "impact_display": "营销结果指数 -45 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [
+    {
+      "person_id": "MKT-A",
+      "display_name": "营销A",
+      "role": "marketing",
+      "verdict": "单一主承接",
+      "action": "优先承接高意向家庭客户，独立带教营销B；本轮不再包含营销C跟训。"
+    },
+    {
+      "person_id": "MKT-B",
+      "display_name": "营销B",
+      "role": "marketing",
+      "verdict": "真实任务战训（承接）",
+      "action": "在营销A带教下承接同产品、同客群真实任务，覆盖原营销C部分机会。"
+    },
+    {
+      "person_id": "MKT-C",
+      "display_name": "营销C",
+      "role": "marketing",
+      "verdict": "本周不可用（约束）",
+      "action": "本周排除，不安排新任务；原承接机会待重分，可用工时待确认。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-MKT-01",
+      "title": "营销A主承接高意向家庭客户并带营销B复盘话术（营销C本周排除）",
+      "object_summary": "高意向家庭客户机会池，含原营销C承接的7条机会重分",
+      "product_summary": "家庭宽带、家庭组网、家庭安防",
+      "validation_summary": "有效订单、早期保有",
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": [
+        "任务执行",
+        "有效订单",
+        "一次竣工"
+      ]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果",
+        "早期保有"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为人员不可用约束变更的候选修订，未新增采纳/调整/驳回；反馈仅记录，需人工复核，不触发执行。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "口径取自个人库演示规则，人员与根因事实取自当前有效场景；缺可用工时处标注待确认。",
+    "sections": [
+      {
+        "section_id": "EV-RULE-04",
+        "title": "规则依据：假设与修订",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 2 RULE-04：人员不可用是约束变更，修订候选中排除该人员，后续追问继承约束、不恢复旧安排；缺少可用工时则明确待确认。"
+      },
+      {
+        "section_id": "EV-RULE-02",
+        "title": "规则依据：证据门",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 1 RULE-02：没有负荷、技能、时限、保障底线证据，不能宣称人员够用。"
+      },
+      {
+        "section_id": "EV-FIXTURE",
+        "title": "场景事实",
+        "content": "TELECOM-DEMO-A-BRANCH-001：headcount=10、装维7/营销3；ACT-MKT-01 targets=[MKT-B,MKT-C]；营销C contribution 286；capacity_check=covered_after_reassignment（按3名营销）。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "营销C原承接的7条机会，需要哪些可用工时与画像证据才能重分给营销A/营销B？",
+    "若营销C下周仍不可用，是否要评估区县跨网格营销支援？",
+    "本周营销侧只剩2人，应优先盯哪几个T期指标？"
+  ],
+  "state_updates": {
+    "last_intent": "constraint_change_person_unavailable",
+    "selected_person": "MKT-C",
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}

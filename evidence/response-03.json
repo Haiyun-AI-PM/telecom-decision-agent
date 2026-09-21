@@ -1,0 +1,160 @@
+{
+  "response_mode": "delta",
+  "answer_text": "约束已记入：营销C本周不可用，本轮修订候选将其排除，本周不安排任何任务与机会，且该约束在后续追问中继续保留、不恢复旧安排（TELECOM-DEMO-RULES-V06#chunk 2 RULE-04）。受影响的是营销链：原安排中由营销C承接的7条高意向家庭客户机会，本周需在可用人员（营销A、营销B）之间按产品价值、同类实绩与客户画像重新分层承接，营销A主承接并带营销B复盘同产品、同客群话术；积分口径不变，营销只算贡献积分，不做跨岗位原始积分排名（RULE-01）。装维链不受影响，装维A带装维B完成6项复杂家庭网络工单的主路径维持，总量结论仍是保持10人、先做网格内部调整、暂不申请跨网格支援。容量口径须改写为待确认：场景容量核验只证明3名营销可覆盖当前机会池，未提供营销A、营销B在本周的可用工时与当前负荷证据，因此本轮不宣称2名营销仍能覆盖原机会池（RULE-02），也不指定7条机会逐条交给谁。按决策顺序先做网格内部调整：优先把画像明确、同产品经验匹配的机会交给营销A，剩余部分由营销A复核后再定；若本周仍无法覆盖，才形成待负责人确认的容量缺口候选并评估区县跨网格支援（RULE-03）。本轮输出为待负责人确认的调整候选，AI不自动调人、派单、改规则，反馈需人工复核（RULE-05）。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "约束变更：营销C本周不可用，营销机会在2名可用人员内重排",
+    "summary": "本周营销链按营销A、营销B两名可用人员重排机会承接，营销C不参与；装维主路径与总量结论不变（保持10人、网格内部调整、暂不申请跨网格支援），2名营销下的机会池覆盖待确认。",
+    "headcount_action": "保持10人（本周营销侧实际可用2人）",
+    "task_action": "网格内部调整：机会按价值与实绩在营销A、营销B间重排",
+    "support_action": "暂不申请跨网格支援；出现明确缺口再评估",
+    "evidence_status": "limited"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销业务量指数",
+      "value": 1.02,
+      "benchmark": 1,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销结果指数",
+      "value": 0.49,
+      "benchmark": 1,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1,
+      "display": "61%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-MKT-01",
+      "title": "机会承接与转化匹配（含本周约束修订）",
+      "statement": "18条高意向家庭客户机会中原仅5条给到同产品同客群转化更稳的营销A；本周营销C不可用后，其原承接的7条机会需在营销A、营销B间按价值、实绩与画像重新分层承接，覆盖是否成立待确认。",
+      "impact_display": "-45 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [
+    {
+      "person_id": "MKT-A",
+      "display_name": "营销A",
+      "role": "marketing",
+      "verdict": "主承接＋带教（范围扩大）",
+      "action": "主承接高意向家庭客户，并复核接收营销C原承接的7条机会中画像明确、同产品经验匹配的部分；带营销B复盘同产品、同客群话术。"
+    },
+    {
+      "person_id": "MKT-B",
+      "display_name": "营销B",
+      "role": "marketing",
+      "verdict": "承接分担＋真实任务战训",
+      "action": "在营销A带教下承接同产品、同客群真实任务，分担本周新增机会；不再与营销C结对。"
+    },
+    {
+      "person_id": "MKT-C",
+      "display_name": "营销C",
+      "role": "marketing",
+      "verdict": "本周排除（约束变更）",
+      "action": "本周不安排任务与机会，该约束在后续追问中持续保留、不恢复旧安排；其可用工时待确认。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-MKT-01",
+      "title": "营销A主承接并按价值分层接收营销C原承接机会，带营销B复盘话术（已排除营销C）",
+      "object_summary": "高意向家庭客户机会池（含营销C原承接的7条）",
+      "product_summary": "家庭宽带、家庭组网、家庭安防",
+      "validation_summary": "有效订单、早期保有",
+      "approval_status": "pending_confirmation"
+    },
+    {
+      "action_id": "ACT-MKT-02",
+      "title": "营销A复核后形成剩余机会的待确认分配，覆盖不足时上报容量缺口候选",
+      "object_summary": "营销A复核后仍未定分配的机会",
+      "product_summary": "家庭组网、家庭安防",
+      "validation_summary": "机会跟进覆盖、有效订单",
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": [
+        "机会跟进覆盖",
+        "有效订单",
+        "任务执行"
+      ]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果",
+        "早期保有"
+      ]
+    },
+    {
+      "checkpoint": "T+2",
+      "metrics": [
+        "撤单",
+        "离网",
+        "最终在网"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "adjusted",
+    "message": "本轮为约束变更后的调整候选：营销C本周不可用已在候选安排中排除，且后续追问继续保留该约束。调整仅形成待负责人确认的候选状态，反馈需人工复核，不触发实际调人、派单或改规则。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "本轮为约束变更后的增量修订，依据个人库规则 TELECOM-DEMO-RULES-V06 与当前有效场景 TELECOM-DEMO-A-BRANCH-001。",
+    "sections": [
+      {
+        "section_id": "EV-RULE",
+        "title": "规则依据",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 2 RULE-04 假设与修订（人员不可用是约束变更，修订候选排除该人员、后续追问继承约束、缺可用工时标注待确认）与 RULE-03 决策顺序（先同岗同口径量/结果/质量，再核验任务结构、人员匹配、有效订单、积分正负项，最后核验容量与保障底线；先网格内调整，存在明确缺口才评估区县跨网格支援）、RULE-05 确认与回看；#chunk 1 RULE-01 岗位分账、RULE-02 证据门（无负荷、技能、时限、保障底线证据不得宣称人员够用）；#chunk 3 RULE-06 事实优先。"
+      },
+      {
+        "section_id": "EV-SCENE",
+        "title": "当前有效场景",
+        "content": "TELECOM-DEMO-A-BRANCH-001：headcount=10、role_structure 装维7/营销3；capacity_check.status=covered_after_reassignment，其中容量结论表述为“3名营销可覆盖当前机会池”；RC-MKT-01：18条高意向机会仅5条给营销A，营销C承接7条仅1条有效订单（-45）；ACT-MKT-01 原 target 含 MKT-B、MKT-C。"
+      },
+      {
+        "section_id": "EV-SCOPE",
+        "title": "口径与待确认项",
+        "content": "缺营销A/营销B本周可用工时与当前负荷证据，2名营销能否覆盖原机会池待确认，故 evidence_status=limited，本轮不逐条指定7条机会承接人；装维与营销分账，不做跨岗位原始积分排名；guardrails：ai_can_execute=false、ai_can_move_people=false、ai_can_enable_rules=false、feedback_requires_review=true。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "本周营销A和营销B具体怎么分工，7条机会按什么标准分层？",
+    "什么条件下才应该申请跨网格支援或临时增援？",
+    "装维侧本周安排需要跟着一起调整吗？"
+  ],
+  "state_updates": {
+    "last_intent": "调整：营销C本周不可用，按约束更新本周安排",
+    "selected_person": null,
+    "feedback_state": "adjusted",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}

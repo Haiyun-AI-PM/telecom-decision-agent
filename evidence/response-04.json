@@ -1,0 +1,127 @@
+{
+  "response_mode": "blocked",
+  "answer_text": "本轮不能回答“具体到谁”：个人级明细已被撤回，按证据要求不再复用任何历史人员明细，而现有输入仅有岗位人数（本期10人，装维岗7人、营销岗3人）与平均积分。平均积分不能用于推断个人（RULE-01），因此无法把任务或机会追溯到任何具体个人，本轮不给出点到人的安排，也不指定任何承接对象。仍成立的是岗位级判断：网格总量保持10人与7:3岗位结构，先做网格内部任务与机会的结构性重排，暂不申请跨网格支援；装维侧量指数88%低于基准，结果指数31%明显偏低，问题指向复杂家庭网络任务的结构与承接匹配；营销侧量指数102%、结果指数49%，指向机会分层与转化稳定性；质量指数61%需一并盯住（RULE-03）。已确认的约束继续保留：有1名营销岗人员本周不可用，本轮及后续均不恢复其旧安排，也不默认将其原有机会自动转交他人（RULE-04）。要恢复到人安排，需补齐个人级证据：①本期每人的可用工时与当前在途负荷；②岗位技能标签与复杂家庭网络任务的资质；③时限与保障底线（故障、巡检、应急预留）；④个人业务事件与积分正负项明细（装维用履约积分、营销用贡献积分，分账、不做跨岗原始积分排名）。补齐前，本轮不产生任何人员安排候选；所有后续建议仍为待负责人确认，AI不执行任何动作，反馈需人工复核（RULE-05）。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "证据不足：个人级明细已撤回，本轮不输出到人安排",
+    "summary": "个人级明细撤回后仅余岗位人数与平均积分，无法追溯到个人，本轮返回 blocked；岗位级结论保持（10人、7:3结构、先做网格内部结构重排、暂不申请跨网格支援）。",
+    "headcount_action": "保持10人（装维岗7人、营销岗3人，其中1人本周不可用约束继续保留）",
+    "task_action": "维持网格内部结构性重排；精确到人的承接安排待证据补齐后确认",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "insufficient"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维岗位业务量指数",
+      "value": 0.88,
+      "benchmark": 1,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维岗位结果指数",
+      "value": 0.31,
+      "benchmark": 1,
+      "display": "31%"
+    },
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销岗位业务量指数",
+      "value": 1.02,
+      "benchmark": 1,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销岗位结果指数",
+      "value": 0.49,
+      "benchmark": 1,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1,
+      "display": "61%"
+    }
+  ],
+  "root_causes": [],
+  "people": [],
+  "actions": [],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": [
+        "岗位任务执行",
+        "有效订单",
+        "一次竣工"
+      ]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果",
+        "早期保有"
+      ]
+    },
+    {
+      "checkpoint": "T+2",
+      "metrics": [
+        "撤单",
+        "离网",
+        "最终在网"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为证据不足状态：个人级明细已撤回，不再复用，故不输出任何人员安排候选。补齐个人级证据后再复评；所有建议均为待负责人确认，AI不执行任何动作，反馈需人工复核。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "结论状态追溯到个人库规则 TELECOM-DEMO-RULES-V06 与当前有效场景 TELECOM-DEMO-A-BRANCH-001 的岗位级字段；个人级字段因撤回不再作为依据。",
+    "sections": [
+      {
+        "section_id": "EV-RULE",
+        "title": "规则依据",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 1 RULE-01 两类岗位分账（不得只靠平均积分推断个人）与 RULE-02 证据门（事实不足返回 blocked、不点名不输出到人行动、被撤回的数据不得重新使用）；#chunk 2 RULE-03 决策顺序、RULE-04 假设与修订（不可用人员排除后持续继承、缺可用工时标注待确认）、RULE-05 确认与回看；#chunk 3 RULE-06 事实优先（RAG 不创造数字或人员）。"
+      },
+      {
+        "section_id": "EV-SCENE",
+        "title": "当前有效场景（仅岗位级字段）",
+        "content": "TELECOM-DEMO-A-BRANCH-001：organization.headcount=10、role_structure 装维7/营销3；signals 88%/31%/102%/49%/61%；capacity_check.status=covered_after_reassignment；场景预置根因编号 RC-OPS-01、RC-MKT-01 仅作为场景证据引用，不宣称独立因果估计。人员级 points、strengths、verdict、action 与 representative_ledgers 已按撤回处理，本轮不予引用。"
+      },
+      {
+        "section_id": "EV-SCOPE",
+        "title": "口径与待确认项",
+        "content": "现有输入仅岗位人数与平均积分，缺个人可用工时、当前负荷、技能资质、时限与保障底线、积分正负项明细，故不做点到人安排，不指定承接对象；装维用履约积分、营销用贡献积分，分账且禁止跨岗原始积分排名；guardrails：ai_can_execute=false、ai_can_move_people=false、ai_can_enable_rules=false、feedback_requires_review=true。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "要恢复到人安排，需要我补哪些个人级证据？",
+    "在只有岗位人数与平均积分的情况下，哪些结论仍然成立？",
+    "如果补充了本期个人可用工时与当前负荷，结论会怎样更新？"
+  ],
+  "state_updates": {
+    "last_intent": "确认个人级明细撤回后，请求点到人安排（本轮判定为证据不足）",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}

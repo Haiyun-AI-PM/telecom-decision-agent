@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cogseed.telecom.decision-response.v1",
+  "title": "CogSeed Telecom Decision Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "response_mode",
+    "answer_text",
+    "organization_scope",
+    "decision",
+    "signals",
+    "root_causes",
+    "people",
+    "actions",
+    "verification",
+    "feedback",
+    "evidence_drawer",
+    "suggested_questions",
+    "state_updates"
+  ],
+  "properties": {
+    "response_mode": {
+      "type": "string",
+      "enum": ["full", "delta", "blocked"]
+    },
+    "answer_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1600
+    },
+    "organization_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analysis_level", "province", "city", "county", "grid", "display_path"],
+      "properties": {
+        "analysis_level": {"type": "string", "enum": ["province", "city", "county", "grid"]},
+        "province": {"type": "string"},
+        "city": {"type": "string"},
+        "county": {"type": "string"},
+        "grid": {"type": "string"},
+        "display_path": {"type": "string"}
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "summary", "headcount_action", "task_action", "support_action", "evidence_status"],
+      "properties": {
+        "title": {"type": "string"},
+        "summary": {"type": "string"},
+        "headcount_action": {"type": "string"},
+        "task_action": {"type": "string"},
+        "support_action": {"type": "string"},
+        "evidence_status": {"type": "string", "enum": ["fixture_supported", "limited", "insufficient"]}
+      }
+    },
+    "signals": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signal_id", "label", "value", "benchmark", "display"],
+        "properties": {
+          "signal_id": {"type": "string"},
+          "label": {"type": "string"},
+          "value": {"type": "number"},
+          "benchmark": {"type": "number"},
+          "display": {"type": "string"}
+        }
+      }
+    },
+    "root_causes": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["root_cause_id", "title", "statement", "impact_display", "status"],
+        "properties": {
+          "root_cause_id": {"type": "string"},
+          "title": {"type": "string"},
+          "statement": {"type": "string"},
+          "impact_display": {"type": "string"},
+          "status": {"type": "string", "enum": ["supported", "candidate", "unknown"]}
+        }
+      }
+    },
+    "people": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["person_id", "display_name", "role", "verdict", "action"],
+        "properties": {
+          "person_id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "role": {"type": "string", "enum": ["operations", "marketing"]},
+          "verdict": {"type": "string"},
+          "action": {"type": "string"}
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_id", "title", "object_summary", "product_summary", "validation_summary", "approval_status"],
+        "properties": {
+          "action_id": {"type": "string"},
+          "title": {"type": "string"},
+          "object_summary": {"type": "string"},
+          "product_summary": {"type": "string"},
+          "validation_summary": {"type": "string"},
+          "approval_status": {"type": "string", "enum": ["pending_confirmation", "accepted", "adjusted", "rejected"]}
+        }
+      }
+    },
+    "verification": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["checkpoint", "metrics"],
+        "properties": {
+          "checkpoint": {"type": "string", "enum": ["T", "T+1", "T+2"]},
+          "metrics": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+        }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "message", "allowed_actions"],
+      "properties": {
+        "status": {"type": "string", "enum": ["none", "accepted", "adjusted", "rejected"]},
+        "message": {"type": "string"},
+        "allowed_actions": {
+          "type": "array",
+          "items": {"type": "string", "enum": ["accept", "adjust", "reject"]},
+          "uniqueItems": true
+        }
+      }
+    },
+    "evidence_drawer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "sections"],
+      "properties": {
+        "summary": {"type": "string"},
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["section_id", "title", "content"],
+            "properties": {
+              "section_id": {"type": "string"},
+              "title": {"type": "string"},
+              "content": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "suggested_questions": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {"type": "string"}
+    },
+    "state_updates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["last_intent", "selected_person", "feedback_state", "create_branch", "increment_revision"],
+      "properties": {
+        "last_intent": {"type": "string"},
+        "selected_person": {"type": ["string", "null"]},
+        "feedback_state": {"type": "string", "enum": ["none", "accepted", "adjusted", "rejected"]},
+        "create_branch": {"type": "boolean"},
+        "increment_revision": {"type": "boolean"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"response_mode": {"const": "blocked"}}},
+      "then": {
+        "properties": {
+          "root_causes": {"maxItems": 0},
+          "people": {"maxItems": 0},
+          "actions": {"maxItems": 0}
+        }
+      }
+    }
+  ]
+}

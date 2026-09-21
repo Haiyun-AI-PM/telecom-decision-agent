@@ -1,0 +1,73 @@
+{
+  "status": "evidence_draft_not_runnable",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "37a467f8e2d587e73c629663a5e92bc8893a6f87d91d7bb16d7695d5591f0499"
+    },
+    {
+      "path": "README.md",
+      "sha256": "cfb0893e9b939d723cab8c110355064b8ceecf215ed12ff0f6bc59f26533c6c1"
+    },
+    {
+      "path": "evidence/response-01.json",
+      "sha256": "09b5a27095f8f8bf0ef396ed2f49e17179516ae1f3f7dd1d6f22df6b5c883492"
+    },
+    {
+      "path": "evidence/response-02.json",
+      "sha256": "d5ec676ff05e1352ecce81cb3cfc80efbc176c85440d0f015f765e86603385c1"
+    },
+    {
+      "path": "evidence/response-03.json",
+      "sha256": "53a885d33c6f4ce9c03a3e106ee4dafb91bcaaf45dd17757ca3c71243481f468"
+    },
+    {
+      "path": "evidence/response-04.json",
+      "sha256": "d1f73e6748d74602ab3eb5dc2745b015201dae63ec930d9440e6d1d7fdbc6eed"
+    },
+    {
+      "path": "evidence/response-05.json",
+      "sha256": "33fc427c2ac506433fb22dd7e9a8cd2e91f71b410480a2b76582553a239753f5"
+    },
+    {
+      "path": "evidence/response-06.json",
+      "sha256": "a9003048103a816e1290b0112345b63cac3a0b76639e2f21579b30281268d8fe"
+    },
+    {
+      "path": "evidence/response-07.json",
+      "sha256": "b73887cb0e3c32e47760911eec42f56646f0438c3b4edccf3c503c16f8b2b0f9"
+    },
+    {
+      "path": "evidence/response-08.json",
+      "sha256": "ace70ff9ecd0c5f25625bc1c3f73d34b212cc7b6c3463bed72f3ef676494d6c5"
+    },
+    {
+      "path": "evidence/validation-results.json",
+      "sha256": "67ee062fe111e5e51ed6e4cb02fa71abbbd2f668442ae1ff3b54a36a361732d9"
+    },
+    {
+      "path": "scenario/00_business_brief.md",
+      "sha256": "8fa41ce70f925d97e25c622851d811d591b5be14dd9e2058a87d0c6b0edf80f9"
+    },
+    {
+      "path": "scenario/01_requirements.md",
+      "sha256": "098f752b0ed1e37982a7809cf8fd28a5331d260c58046a3bb50b18d5b24d5fa9"
+    },
+    {
+      "path": "scenario/02_prompts.md",
+      "sha256": "35e307f66f7bab0b024e62674d4d74c8e13268efdc3e1b61e683b4869528d9eb"
+    },
+    {
+      "path": "scenario/03_demo_fixture.json",
+      "sha256": "c924b095acbeb73329f3e3f94f63f42bea456dbbbef54a1df06eddd1ba47be3c"
+    },
+    {
+      "path": "scenario/04_decision_response_schema.json",
+      "sha256": "1a00b418bd50f2691d9fbc55a19e99c329e4bfa624436083519a15815b20c355"
+    },
+    {
+      "path": "scenario/06_handoff_checklist.md",
+      "sha256": "a8b70e8b2c84051aafdddc24328555fbdd5e00b23c02ed83a103cbe3a8c1d616"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "response_mode": "delta",
+  "answer_text": "本轮为 What-if 假设分支：装维由7人增至9人（网格总量10→12），不覆盖基础结论。结论：增加2名装维不改变判断，本期仍保持10人和7:3岗位结构，先做网格内部任务与机会重排，暂不申请区县跨网格支援。理由（RULE-03 决策顺序）：装维业务量指数88%（基准1.0）已低于基准，装维侧不存在量的缺口；装维结果指数仅31%，卡点是6项复杂家庭网络履约任务中4项未优先进入技能与当前负荷双匹配队列（RC-OPS-01，-52 指数点），属承接匹配问题而非人数问题（RULE-01 岗位分账：装维按履约积分口径判断）。容量核对显示6项复杂任务可由现有7名装维本期覆盖，故障、巡检与应急保障预留不受影响，新增2人不会自动修复匹配缺口。证据门（RULE-02）：2名新增装维缺少技能标签、当前负荷、可用工时与复杂组网资质证据，不能进入任何到人安排，其可用工时标注「待确认」。仅当复杂任务量超过现有装维覆盖能力或保障底线被挤压时，才评估加人或区县跨网格支援。基础分支动作 ACT-OPS-01、ACT-MKT-01 保持不变，本分支不改动人员级安排；所有动作仍为待负责人确认，AI不执行调人、派单、改规则或发布。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "假设增加2名装维：不改变当前结论",
+    "summary": "装维业务量指数低于基准、瓶颈在任务承接匹配，新增2名装维不改变「保持10人、内部重排、暂不申请跨网格支援」的基础结论。",
+    "headcount_action": "保持10人",
+    "task_action": "内部重排",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "fixture_supported"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1,
+      "display": "31%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-OPS-01",
+      "title": "复杂履约任务结构与承接匹配",
+      "statement": "6项复杂家庭网络履约任务中，4项未优先进入技能和当前负荷都匹配的人员队列，形成延期和返工风险；该缺口由承接匹配造成，不由人数造成。",
+      "impact_display": "-52 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [],
+  "actions": [],
+  "verification": [],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为 What-if 假设分支，未提交采纳／调整／驳回；反馈仅记录，需人工复核，不触发真实调人、派单、改规则或发布。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "本轮为独立假设分支，基础结论不覆盖、不改写；结论依据个人库规则与当前有效场景。",
+    "sections": [
+      {
+        "section_id": "EV-01",
+        "title": "规则依据（个人库检索）",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 2：RULE-03 决策顺序（先同岗同口径量、结果、质量，最后核验容量与保障底线；先网格内调整，存在明确缺口才评估区县跨网格支援）；RULE-04 假设与修订（What-if 建独立分支，不覆盖基础事实；缺少可用工时则明确待确认）；RULE-05 确认与回看（AI 仅提建议，采纳/调整/驳回只形成待负责人确认候选）。#chunk 3：RULE-06 事实优先（业务数字仅来自当前有效场景，不创造数字或人员）。"
+      },
+      {
+        "section_id": "EV-02",
+        "title": "场景事实（当前有效场景）",
+        "content": "家庭业务A网格（某省/某市/某区县）本期 headcount=10，role_structure 装维7/营销3；装维业务量指数88%、装维结果指数31%（基准1.0）；场景预置根因 RC-OPS-01 复杂履约任务结构与承接匹配（-52 指数点，supported_by_fixture）；容量核对 covered_after_reassignment：6项复杂任务可由现有7名装维本期覆盖，故障、巡检与应急保障预留不受影响，3名营销可覆盖当前机会池。假设分支仅改变装维人数（7→9）这一假设变量，基础事实与预置根因不变。"
+      },
+      {
+        "section_id": "EV-03",
+        "title": "证据门与安全边界",
+        "content": "假设新增的2名装维在当前场景中无技能标签、当前负荷、可用工时与复杂组网资质证据，按 RULE-02 不进入到人安排，可用工时标注待确认；本分支不产生新的到人行动，人员级安排与 actions 保持基础分支原样（ACT-OPS-01、ACT-MKT-01，approval_status=pending_confirmation）。岗位分账：装维结论仅用履约积分口径，未做跨岗位原始积分排名。安全边界：ai_can_execute=false、ai_can_move_people=false、ai_can_enable_rules=false、feedback_requires_review=true。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "要证明「加2名装维能提升结果」需要哪些个人级证据？",
+    "什么条件下才应评估区县跨网格支援或临时增援？",
+    "不加人、只做任务重排，T 期先看哪几个指标？"
+  ],
+  "state_updates": {
+    "last_intent": "What-if：增加2名装维是否改变当前结论（独立分支，不覆盖基础结论）",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": true,
+    "increment_revision": false
+  }
+}

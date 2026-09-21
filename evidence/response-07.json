@@ -1,0 +1,115 @@
+{
+  "response_mode": "delta",
+  "answer_text": "本轮回到基础场景（当前空间完整脱敏场景，已恢复为本轮有效依据），仅就装维A的履约积分构成作答。口径依据 RULE-01 岗位分账：装维按「履约积分」口径解释，禁止跨岗位原始积分排名，也不得用平均积分反推个人。依据当前场景 representative_ledgers（ledger_type=operations_fulfilment），装维A履约积分合计 94.34。正项 2 条：①复杂家庭网络标准包竣工 +90.00；②主设备激活调测 +4.34。两项均属个人业务事件，正项合计 90.00+4.34=94.34，与合计值一致。负项：当前场景未给出装维A的质量扣减或跨期调整事件，故本轮不列负项、不虚构数字，按 RULE-02 证据门标注「待确认」；如需核实负项，请补充该人的质量扣减与账期调整明细。该积分结构与装维结果指数 31%（基准 1.0）相互印证：其分值主要来自复杂家庭网络标准包竣工，卡点在复杂任务承接匹配（RC-OPS-01），非人数量不足。本轮不改变基础结论：保持 10 人及 7:3 岗位结构、先网格内部任务与机会重排、暂不申请区县跨网格支援；ACT-OPS-01 仍为待负责人确认，AI 不执行调人、派单、改规则或发布。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "装维A履约积分：2条正项、无负项证据",
+    "summary": "装维A履约积分合计 94.34，由「复杂家庭网络标准包竣工 +90.00」「主设备激活调测 +4.34」两项正项构成；当前场景无负项证据，标注待确认。",
+    "headcount_action": "保持10人",
+    "task_action": "内部重排",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "fixture_supported"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1,
+      "display": "31%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-OPS-01",
+      "title": "复杂履约任务结构与承接匹配",
+      "statement": "6项复杂家庭网络履约任务中，4项未优先进入技能和当前负荷都匹配的人员队列；装维A的履约积分正项主要来自复杂家庭网络标准包竣工，说明分值来源与承接匹配问题同源。",
+      "impact_display": "-52 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [
+    {
+      "person_id": "OPS-A",
+      "display_name": "装维A",
+      "role": "operations",
+      "verdict": "主承接＋带教（基础分支不变）",
+      "action": "履约积分合计 94.34，正项为复杂家庭网络标准包竣工 +90.00、主设备激活调测 +4.34；负项无场景证据，待确认。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-OPS-01",
+      "title": "装维A带装维B完成复杂家庭网络工单",
+      "object_summary": "6项复杂家庭网络履约任务",
+      "product_summary": "家庭组网产品族",
+      "validation_summary": "一次竣工、返工、准时完成",
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果",
+        "早期保有"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为积分构成解释，未提交采纳／调整／驳回；反馈仅记录并需人工复核，不触发真实调人、派单、改规则或发布。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "结论只来自个人库规则 TELECOM-DEMO-RULES-V06 与当前有效场景 representative_ledgers，未使用场景外数据，也未复用被撤回的历史明细。",
+    "sections": [
+      {
+        "section_id": "EV-01",
+        "title": "规则依据（个人库检索）",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 1：RULE-01 岗位分账（装维使用履约积分、营销使用贡献积分，禁止跨岗位原始积分排名；积分解释必须回到个人业务事件、当前负荷与质量证据，不得只靠平均积分推断个人）；RULE-02 证据门（积分事实不足不点名、不输出到人行动，失效或被撤回的历史人员明细不得重新使用）。#chunk 2：RULE-03 决策顺序（同岗同口径量、结果、质量 → 任务产品结构与人员匹配 → 有效订单或一次竣工 → 积分正负项与账期调整 → 容量与保障底线）。#chunk 3：RULE-06 事实优先（业务数字仅来自当前场景，不创造数字或人员）。"
+      },
+      {
+        "section_id": "EV-02",
+        "title": "场景事实（当前有效场景）",
+        "content": "家庭业务A网格（某省/某市/某区县）本期 headcount=10，role_structure 装维7/营销3。装维A：person_id=OPS-A，role=operations，points_type=履约积分，points=94.34，strengths=复杂家庭网络／一次交付／现场带教，verdict=主承接＋带教。representative_ledgers（ledger_type=operations_fulfilment）：items=[复杂家庭网络标准包竣工 +90.00，主设备激活调测 +4.34]，total=94.34。场景未给出装维A的负项事件（质量扣减／跨期调整）。装维业务量指数 88%、装维结果指数 31%（基准 1.0）。"
+      },
+      {
+        "section_id": "EV-03",
+        "title": "证据门与安全边界",
+        "content": "正负项判定严格按场景字段：仅当场景存在 signed_points 为负的事件才计为负项，本轮无此证据，故标注待确认，未以其他人员（如装维B 的 -22.12）替代推断。岗位分账：仅用装维履约积分口径，未做跨岗位原始积分排名。基础分支的到人安排源自已恢复的当前有效场景，未复用任何被撤回的历史人员明细。安全边界：ai_can_execute=false、ai_can_move_people=false、ai_can_enable_rules=false、feedback_requires_review=true；ACT-OPS-01 的 approval_status=pending_confirmation。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "要补齐装维A的负项（质量扣减／跨期调整）证据，需要提供哪些字段？",
+    "装维B的履约积分为何是 -22.12，其正负项分别是什么？",
+    "按 T+1 积分兑现，应如何回看装维A的履约积分结果？"
+  ],
+  "state_updates": {
+    "last_intent": "回到基础场景，解释装维A履约积分的构成与正负项依据（delta）",
+    "selected_person": "OPS-A",
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": false
+  }
+}

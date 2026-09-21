@@ -1,0 +1,230 @@
+{
+  "response_mode": "full",
+  "answer_text": "判断：本期家庭业务A网格10人、装维7+营销3的岗位结构总体够用，问题不在人数，而在高价值任务与机会的匹配（依据 TELECOM-DEMO-RULES-V06#chunk 2 RULE-03 决策顺序、#chunk 1 RULE-01 岗位分账）。装维侧业务量指数88%（量不缺）、结果指数仅31%，说明结果掉在复杂家庭网络任务的承接匹配；营销侧量指数102%、结果指数49%，说明机会分给了转化更不稳的人；质量指数61%需一并盯住。共识根因两条：①复杂履约任务结构与承接匹配——6项复杂家庭网络任务中4项未进入「技能+当前负荷」双匹配队列，形成延期与返工风险（-52指数点）；②机会承接与转化匹配——18条高意向家庭客户机会仅5条给同产品同客群转化更稳的营销A，营销C承接7条仅1条成有效订单（-45指数点）。动作：先做网格内部重排，暂不申请跨网格支援；容量检查显示7名装维可覆盖6项复杂任务，故障、巡检、应急保障预留不受影响。到人层面：装维A主承接复杂家庭网络并带装维B；装维B暂不独立承接复杂组网、随A完成2项真实工单后复评；装维E做质量复盘、控制复杂任务派发；装维F优先修障与应急、控制新增在途任务；装维G完成专项战训后再扩大任务范围；营销A主承接高意向客户并带B/C复盘话术。营销用贡献积分、装维用履约积分，两组分账，不做跨岗位原始积分排名。所有动作均为待负责人确认的建议，不自动调人、派单或改规则（RULE-05）。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "人员总量先保持，优先重排高价值任务与机会",
+    "summary": "本期保持当前网格10人和7:3岗位结构，先做网格内部任务重排，暂不申请跨网格支援。",
+    "headcount_action": "保持10人",
+    "task_action": "内部重排",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "fixture_supported"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1,
+      "display": "31%"
+    },
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销业务量指数",
+      "value": 1.02,
+      "benchmark": 1,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销结果指数",
+      "value": 0.49,
+      "benchmark": 1,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1,
+      "display": "61%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-OPS-01",
+      "title": "复杂履约任务结构与承接匹配",
+      "statement": "6项复杂家庭网络履约任务中，4项未优先进入技能和当前负荷都匹配的人员队列，形成延期和返工风险。",
+      "impact_display": "-52 指数点",
+      "status": "supported"
+    },
+    {
+      "root_cause_id": "RC-MKT-01",
+      "title": "机会承接与转化匹配",
+      "statement": "18条高意向家庭客户机会中，仅5条分配给同产品同客群转化更稳的营销A；营销C承接7条，仅1条形成有效订单。",
+      "impact_display": "-45 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [
+    {
+      "person_id": "OPS-A",
+      "display_name": "装维A",
+      "role": "operations",
+      "verdict": "主承接＋带教",
+      "action": "主承接复杂家庭网络工单，并带装维B完成2项真实任务。"
+    },
+    {
+      "person_id": "OPS-B",
+      "display_name": "装维B",
+      "role": "operations",
+      "verdict": "结对战训",
+      "action": "暂不独立承接复杂组网，随装维A完成2项真实工单后复评。"
+    },
+    {
+      "person_id": "OPS-C",
+      "display_name": "装维C",
+      "role": "operations",
+      "verdict": "保持",
+      "action": "维持融合宽带和家庭安防协同任务。"
+    },
+    {
+      "person_id": "OPS-D",
+      "display_name": "装维D",
+      "role": "operations",
+      "verdict": "保障预留",
+      "action": "保持标准家庭组网任务并预留保障能力。"
+    },
+    {
+      "person_id": "OPS-E",
+      "display_name": "装维E",
+      "role": "operations",
+      "verdict": "质量复盘",
+      "action": "复盘历史质量扣减，控制复杂任务派发。"
+    },
+    {
+      "person_id": "OPS-F",
+      "display_name": "装维F",
+      "role": "operations",
+      "verdict": "负荷控制",
+      "action": "优先修障与应急，控制新增在途任务。"
+    },
+    {
+      "person_id": "OPS-G",
+      "display_name": "装维G",
+      "role": "operations",
+      "verdict": "专项战训",
+      "action": "完成复杂家庭网络专项战训后再扩大任务范围。"
+    },
+    {
+      "person_id": "MKT-A",
+      "display_name": "营销A",
+      "role": "marketing",
+      "verdict": "主承接＋带教",
+      "action": "优先承接高意向家庭客户，并带营销B/营销C复盘话术。"
+    },
+    {
+      "person_id": "MKT-B",
+      "display_name": "营销B",
+      "role": "marketing",
+      "verdict": "真实任务战训",
+      "action": "在营销A带教下完成同产品、同客群真实任务。"
+    },
+    {
+      "person_id": "MKT-C",
+      "display_name": "营销C",
+      "role": "marketing",
+      "verdict": "聚焦转化",
+      "action": "聚焦画像明确的家庭组网机会，按统一话术完成触达。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-OPS-01",
+      "title": "装维A带装维B完成复杂家庭网络工单",
+      "object_summary": "6项复杂家庭网络履约任务",
+      "product_summary": "家庭组网产品族",
+      "validation_summary": "一次竣工、返工、准时完成",
+      "approval_status": "pending_confirmation"
+    },
+    {
+      "action_id": "ACT-MKT-01",
+      "title": "营销A主承接高意向家庭客户并带营销B/营销C复盘话术",
+      "object_summary": "高意向家庭客户机会池",
+      "product_summary": "家庭宽带、家庭组网、家庭安防",
+      "validation_summary": "有效订单、早期保有",
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": [
+        "任务执行",
+        "有效订单",
+        "一次竣工"
+      ]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果",
+        "早期保有"
+      ]
+    },
+    {
+      "checkpoint": "T+2",
+      "metrics": [
+        "撤单",
+        "离网",
+        "最终在网"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "以上为待负责人确认的建议，采纳/调整/驳回仅形成候选状态，反馈需人工复核，不触发实际调人、派单或改规则。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "结论同时追溯到个人库规则 TELECOM-DEMO-RULES-V06 与当前有效场景 TELECOM-DEMO-A-BRANCH-001。",
+    "sections": [
+      {
+        "section_id": "EV-RULE",
+        "title": "规则依据",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 1 RULE-01 岗位分账/RULE-02 证据门；#chunk 2 RULE-03 决策顺序/RULE-04 假设与修订/RULE-05 确认与回看；#chunk 3 RULE-06 事实优先。"
+      },
+      {
+        "section_id": "EV-SCENE",
+        "title": "当前有效场景",
+        "content": "TELECOM-DEMO-A-BRANCH-001：家庭业务A网格，headcount=10（装维7+营销3）；信号 88%/31%/102%/49%/61%；根因 RC-OPS-01（-52）、RC-MKT-01（-45）；capacity_check=covered_after_reassignment。"
+      },
+      {
+        "section_id": "EV-SCOPE",
+        "title": "口径边界",
+        "content": "营销用贡献积分、装维用履约积分，禁止跨岗位原始积分排名（RULE-01）；数字仅取自当前场景，不补外部数据；AI 不执行调人/派单/改规则（RULE-05）。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "为什么不是缺人，而是任务匹配问题？",
+    "具体到谁，应该怎么安排？",
+    "装维A的履约积分是怎么算出来的？"
+  ],
+  "state_updates": {
+    "last_intent": "人员配置合理性分析（首轮）",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": false
+  }
+}

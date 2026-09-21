@@ -1,0 +1,142 @@
+{
+  "response_mode": "delta",
+  "answer_text": "结论不变：增加1名装维不改变本期判断。依据两处场景证据：容量检查显示6项复杂家庭网络任务可由现有7名装维在本期内覆盖，故障、巡检与应急保障预留不受影响；装维业务量指数88%低于基准100%，说明装维侧不是人手不足。装维结果卡在复杂任务结构与承接匹配（RC-OPS-01），营销机会承接与转化匹配（RC-MKT-01）属另一岗位口径，增加装维不影响该根因。因此本期仍保持10人与7:3岗位结构，先做网格内部重排，暂不申请跨网格支援，主路径仍为装维A带装维B完成6项复杂家庭网络工单。新增人员本轮不进入到人安排：场景未给出其技能、当前负荷、可用工时与保障底线证据，按证据要求不点名、不指定承接人，也不宣称增员会直接带来结果或质量改善。只有当出现明确容量缺口，即复杂任务超出7名装维覆盖范围或保障底线被挤压时，才评估增员或区县跨网格支援。本What-if为独立假设分支，不覆盖基础结论；如确要增加，请先补齐上述个人级证据，再作为待负责人确认的候选复评。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省/某市/某区县/家庭业务A网格"
+  },
+  "decision": {
+    "title": "增员假设不改变本期结论：仍以内部重排为主",
+    "summary": "What-if分支：在现有7名装维之外增加1名装维，基础结论保持不变——本期仍保持10人、先做网格内部重排、暂不申请跨网格支援。",
+    "headcount_action": "保持10人（增1名装维为待确认假设分支，不改基础结论）",
+    "task_action": "维持网格内部重排",
+    "support_action": "暂不申请跨网格支援",
+    "evidence_status": "fixture_supported"
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1,
+      "display": "31%"
+    }
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC-OPS-01",
+      "title": "复杂履约任务结构与承接匹配",
+      "statement": "增员假设下该根因不变：6项复杂家庭网络任务已有4项未进入技能与负荷双匹配队列，属任务匹配问题而非人手缺口。",
+      "impact_display": "-52 指数点",
+      "status": "supported"
+    },
+    {
+      "root_cause_id": "RC-MKT-01",
+      "title": "机会承接与转化匹配",
+      "statement": "该根因与装维增员无关联：18条高意向机会仅5条给到同产品同客群更稳的营销A，属营销岗位口径，增加装维不改变该结论。",
+      "impact_display": "-45 指数点",
+      "status": "supported"
+    }
+  ],
+  "people": [
+    {
+      "person_id": "OPS-A",
+      "display_name": "装维A",
+      "role": "operations",
+      "verdict": "主承接＋带教（增员假设下不变）",
+      "action": "继续主承接复杂家庭网络工单，并带装维B完成2项真实任务。"
+    },
+    {
+      "person_id": "OPS-B",
+      "display_name": "装维B",
+      "role": "operations",
+      "verdict": "结对战训（增员假设下不变）",
+      "action": "继续随装维A完成2项真实工单后复评，暂不独立承接复杂组网。"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-OPS-01",
+      "title": "维持原主路径：装维A带装维B完成复杂家庭网络工单（不变）",
+      "object_summary": "6项复杂家庭网络履约任务（现有7名装维内覆盖）",
+      "product_summary": "家庭组网产品族",
+      "validation_summary": "一次竣工、返工、准时完成",
+      "approval_status": "pending_confirmation"
+    }
+  ],
+  "verification": [
+    {
+      "checkpoint": "T",
+      "metrics": [
+        "任务执行",
+        "一次竣工"
+      ]
+    },
+    {
+      "checkpoint": "T+1",
+      "metrics": [
+        "积分兑现",
+        "质量结果"
+      ]
+    },
+    {
+      "checkpoint": "T+2",
+      "metrics": [
+        "返工",
+        "最终在网"
+      ]
+    }
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "增员为独立假设分支，不覆盖基础结论；采纳、调整或驳回仅形成待负责人确认的候选状态，反馈需人工复核，不触发实际调人、派单或改规则。",
+    "allowed_actions": [
+      "accept",
+      "adjust",
+      "reject"
+    ]
+  },
+  "evidence_drawer": {
+    "summary": "本轮为What-if分支：结论差异追溯到个人库规则 TELECOM-DEMO-RULES-V06 与本轮当前有效场景 TELECOM-DEMO-A-BRANCH-001。",
+    "sections": [
+      {
+        "section_id": "EV-RULE",
+        "title": "规则依据",
+        "content": "TELECOM-DEMO-RULES-V06#chunk 2 RULE-03 决策顺序（先网格内部调整、存在明确缺口才评估跨网格支援）与 RULE-04 假设与修订（What-if 建独立分支、不覆盖基础事实）；#chunk 1 RULE-02 证据门（缺技能、负荷、工时、保障底线证据不宣称人员够用）；#chunk 3 RULE-06 事实优先（不创造数字或人员）。"
+      },
+      {
+        "section_id": "EV-SCENE",
+        "title": "当前有效场景",
+        "content": "TELECOM-DEMO-A-BRANCH-001：headcount=10、role_structure 装维7/营销3；capacity_check.status=covered_after_reassignment（6项复杂任务可由现有7名装维覆盖、保障预留不受影响）；SIG-OPS-VOLUME=0.88、SIG-OPS-RESULT=0.31。"
+      },
+      {
+        "section_id": "EV-SCOPE",
+        "title": "口径边界",
+        "content": "新增人员无个人级技能、负荷、可用工时与保障底线证据，故本轮不点名、不指定承接人，也不宣称增员与结果、质量改善的因果关系；装维与营销分账，不做跨岗位原始积分排名。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "什么条件下才应该申请增加装维或跨网格支援？",
+    "如果新增的这名装维只会基础履约，结论会变吗？",
+    "在现有人手下，装维侧具体怎么排班与派工？"
+  ],
+  "state_updates": {
+    "last_intent": "What-if：增加一名装维是否改变结论",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": true,
+    "increment_revision": false
+  }
+}
