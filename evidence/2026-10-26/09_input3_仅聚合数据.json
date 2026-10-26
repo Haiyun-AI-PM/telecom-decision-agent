@@ -1,0 +1,82 @@
+{
+  "response_mode": "blocked",
+  "answer_text": "不能回答“具体应该重派谁”。本轮有效事实已限定为 课程资料/证据不足_仅聚合数据.json：只有网格级聚合（10 人、装维 7、营销 3 与五项指数），不含任何个人任务、负荷、积分或质量证据。按 TELECOM-DEMO-RULES-V06#chunk 1 的 RULE-02，人员、任务或积分事实不足时返回 blocked，不点名、不输出到人行动，且数据被撤回后不得重新使用历史人员明细——因此上一轮的装维与营销个人台账本轮一律不再引用；#chunk 1 的 RULE-01 亦禁止用平均积分推断个人。故本轮不给任何姓名，也不给重派方案。补证要求：① 工单级明细（任务类型、复杂度、时限、一次竣工）；② 个人可用工时与在途负荷；③ 个人技能与资质；④ 机会池明细（分配、触达、有效订单）；⑤ 保障底线（不可延后的客户承诺）；⑥ 积分正负项与账期调整。说明：本轮为上下文撤回测试，不声称严格隔离。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省 / 某市 / 某区县 / 家庭业务A网格"
+  },
+  "decision": {
+    "title": "仅聚合数据下无法确定重派对象，本轮不点名",
+    "summary": "有效事实只到网格级，没有到人证据。按证据门返回 blocked：不给姓名、不给到人安排，只提交补证清单。",
+    "headcount_action": "不涉及人员数量判断（聚合数据无工时与复杂度口径）",
+    "task_action": "不出重派方案，先补个人级与工单级证据",
+    "support_action": "暂不申请跨网格支援；当前信息不足以判断缺口",
+    "evidence_status": "insufficient"
+  },
+  "signals": [
+    {"signal_id": "SIG-OPS-VOLUME", "label": "装维业务量指数", "value": 0.88, "benchmark": 1, "display": "88%"},
+    {"signal_id": "SIG-OPS-RESULT", "label": "装维结果指数", "value": 0.31, "benchmark": 1, "display": "31%"},
+    {"signal_id": "SIG-MKT-VOLUME", "label": "营销业务量指数", "value": 1.02, "benchmark": 1, "display": "102%"},
+    {"signal_id": "SIG-MKT-RESULT", "label": "营销结果指数", "value": 0.49, "benchmark": 1, "display": "49%"},
+    {"signal_id": "SIG-QUALITY", "label": "质量指数", "value": 0.61, "benchmark": 1, "display": "61%"}
+  ],
+  "root_causes": [],
+  "people": [],
+  "actions": [],
+  "verification": [
+    {"checkpoint": "T", "metrics": ["任务执行", "有效订单", "一次竣工"]},
+    {"checkpoint": "T+1", "metrics": ["积分兑现", "质量结果", "早期保有"]},
+    {"checkpoint": "T+2", "metrics": ["撤单", "离网", "最终在网"]}
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为 blocked：仅提交证据缺口清单，不含任何人员指派建议。",
+    "allowed_actions": ["accept", "adjust", "reject"]
+  },
+  "evidence_drawer": {
+    "summary": "规则取自知识库读取 TELECOM-DEMO-RULES-V06（chunks=3）。有效事实仅 课程资料/证据不足_仅聚合数据.json（test_id=telecom-demo-aggregate-only，status=test_input_not_executed，headcount=10，operations=7，marketing=3，五项指数）。历史人员明细已按用户撤回，本轮未引用。",
+    "sections": [
+      {
+        "section_id": "EV-RULE-02",
+        "title": "规则依据：证据门（TELECOM-DEMO-RULES-V06#chunk 1）",
+        "content": "RULE-02 原文：“人员、任务、结果或积分事实不足时返回 blocked，不点名、不输出到人行动。数据失效或被用户撤回后不得重新使用历史人员明细。”这是本轮 blocked 的直接依据。"
+      },
+      {
+        "section_id": "EV-RULE-01",
+        "title": "规则依据：两类岗位分账（TELECOM-DEMO-RULES-V06#chunk 1）",
+        "content": "RULE-01 禁止跨岗位原始积分排名，且“不得只靠平均积分推断个人”。聚合档位连个人平均都没有，只有网格级信号，个人结论无从谈起。"
+      },
+      {
+        "section_id": "EV-RULE-06",
+        "title": "规则依据：事实优先（TELECOM-DEMO-RULES-V06#chunk 3）",
+        "content": "RULE-06：不创造数字或人员，无检索依据应明确未知。故本轮不引用已撤回的个人明细，也不据聚合信号编造任何人选。"
+      },
+      {
+        "section_id": "EV-SCOPE",
+        "title": "本次撤回的边界（如实说明）",
+        "content": "这是上下文撤回测试：同一会话内先声明以聚合文件为唯一有效事实，再测试是否停止点名。不声称是严格隔离测试——本会话早前读过的个人明细仍在上下文中，本轮的处理方式是主动不引用、不作为依据。"
+      },
+      {
+        "section_id": "EV-GAP",
+        "title": "补证要求（缺一不可）",
+        "content": "G1 工单级明细（类型/复杂度/时限/一次竣工）；G2 个人可用工时与在途负荷；G3 个人技能资质；G4 机会池分配与有效订单；G5 保障底线；G6 积分正负项与账期调整。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "能否提供工单级明细（任务类型、复杂度、时限、一次竣工）？",
+    "能否提供个人可用工时、在途负荷与技能资质？",
+    "机会池 18 条的分配、触达与有效订单记录能否导出？"
+  ],
+  "state_updates": {
+    "last_intent": "仅聚合数据撤回测试：拒绝点名重派，返回 blocked 与补证清单",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}

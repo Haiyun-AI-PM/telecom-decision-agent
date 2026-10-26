@@ -7,7 +7,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7fc8955a0fd7f3d67811a43d730dd8dbbf483b1ed43900943cee1c6a858c2d4b"
+      "sha256": "f4d5413dfe4c35b80f11c9e8bc2a1c6fda7fcce170c3476770cbc3cd11e45880"
     },
     {
       "path": "assets/agent/cogseed-agent-snapshot.json",
@@ -48,6 +48,78 @@
     {
       "path": "docs/TEACHER-CHECK.md",
       "sha256": "a740a8d63257e91b91e1fca7a2d6c14d21cf3937da4063a04e19ca7ede93db8c"
+    },
+    {
+      "path": "docs/学习复盘草稿.md",
+      "sha256": "3ba1887938e5667b02ad724c9ceeacd9b15bc94d9f74b30a4c1fde95ed638347"
+    },
+    {
+      "path": "docs/网格经营分析方法.md",
+      "sha256": "c2058ea3877b01596488f35e016f5467500d0df60f51ed1dd0793d543ce29721"
+    },
+    {
+      "path": "evidence/2026-10-26/01_网格经营分析_修订版.md",
+      "sha256": "b92610759e121ce8f1d65ace6ca45f1ad350e76204f367549e919d5f6b3f6c02"
+    },
+    {
+      "path": "evidence/2026-10-26/02_rag_检索记录.md",
+      "sha256": "0173d022da49b228addcb4bfe1d5764b536b63e2fe6e4ff38568ca1ddf15cf97"
+    },
+    {
+      "path": "evidence/2026-10-26/03_decision_response.json",
+      "sha256": "402a0828037d7c70b0d53c7db17c864e05d441573df23de3e757b0a0d25a79b2"
+    },
+    {
+      "path": "evidence/2026-10-26/04_验证记录.md",
+      "sha256": "448d19ff9a617b1d96dba58513d3cc8613b9117f33ee65ff95161467757aa291"
+    },
+    {
+      "path": "evidence/2026-10-26/05_交付包清单.md",
+      "sha256": "dac1929584657544f3491210be2d5446b0462705a42f14e3ceeb54f90a066608"
+    },
+    {
+      "path": "evidence/2026-10-26/06_交付校验结果.md",
+      "sha256": "6b974bedc866248c4fc60ff4af85c79f2df11684dc8db9b9b878025315d23930"
+    },
+    {
+      "path": "evidence/2026-10-26/07_input1_增员假设.json",
+      "sha256": "328032cc77a7a066b5dbc365e8be6a16ff13b1f5f0bbb76143f905dcfbc91a17"
+    },
+    {
+      "path": "evidence/2026-10-26/07_input1_增员假设.md",
+      "sha256": "24a11b2882dcf0fd25b6a5394a3398fe51a784d2490018929247977d3feccb7a"
+    },
+    {
+      "path": "evidence/2026-10-26/08_input2_营销C不可用.json",
+      "sha256": "650ca5bd0a35e51590572e2479a62459237e927a313bcff59bf0dc1354db49ad"
+    },
+    {
+      "path": "evidence/2026-10-26/08_input2_营销C不可用.md",
+      "sha256": "f4c1f1b1bd40d97ba7d9cb58059f73fda4f6ed0f83354cc99363c713fcbb1116"
+    },
+    {
+      "path": "evidence/2026-10-26/09_input3_仅聚合数据.json",
+      "sha256": "47cdaf76f4b3df2f9425777b045a1be544af1e81af82ec4d62b649bc4939f039"
+    },
+    {
+      "path": "evidence/2026-10-26/09_input3_仅聚合数据.md",
+      "sha256": "eb17a81a8dac49b57677658edae792fd072daf2f56c4ba68794bf7aed8630d50"
+    },
+    {
+      "path": "evidence/2026-10-26/10_input4_装维A积分94.34.json",
+      "sha256": "4349b2315ba5f5db1fcb36f508cc38357e756376c4728ffae325784e2a974155"
+    },
+    {
+      "path": "evidence/2026-10-26/10_多轮追问_装维A积分94.34.md",
+      "sha256": "aa00e0232681dc768681464d4542194afe50f654b79f64ef2f104d44db208005"
+    },
+    {
+      "path": "evidence/2026-10-26/11_方法复用记录_高意向机会量.md",
+      "sha256": "178c580b674187d41fed49fa9abe4cccd9ef52bfe030f394419cc9f4cf77607e"
+    },
+    {
+      "path": "evidence/2026-10-26/12_业务Agent测试实况.md",
+      "sha256": "e3f13ace5e5806f84f0a74eb01156e6b820c76f964a7af92fb6f2ab098c117c9"
     },
     {
       "path": "evidence/response-01.json",
@@ -98,6 +170,10 @@
       "sha256": "1a00b418bd50f2691d9fbc55a19e99c329e4bfa624436083519a15815b20c355"
     },
     {
+      "path": "imports/live-inputs/证据不足_仅聚合数据.json",
+      "sha256": "ebb23fd9289f0c1e1f382a773fccaa67fba0c1bf83f35d81f8bfb5a31a61d80f"
+    },
+    {
       "path": "scenario/00_business_brief.md",
       "sha256": "8fa41ce70f925d97e25c622851d811d591b5be14dd9e2058a87d0c6b0edf80f9"
     },
@@ -122,8 +198,12 @@
       "sha256": "a8b70e8b2c84051aafdddc24328555fbdd5e00b23c02ed83a103cbe3a8c1d616"
     },
     {
+      "path": "tools/validate_response.py",
+      "sha256": "f8855fb2e018ff860b2b43954bc6410ddd7d45444742e66f74f5af55cf36d6e6"
+    },
+    {
       "path": "tools/verify_bundle.py",
-      "sha256": "657cb695a3f2c339eea2b28386ec769362ecb8e96dc050262490bf68cb7988e2"
+      "sha256": "1277ed6234d24063d8a3fdd6391cb79878e475cad1bcbf405821bf528590b543"
     }
   ]
 }

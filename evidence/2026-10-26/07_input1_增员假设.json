@@ -1,0 +1,82 @@
+{
+  "response_mode": "delta",
+  "answer_text": "按 RULE-04（TELECOM-DEMO-RULES-V06#chunk 2）建独立假设分支，不覆盖基础事实：基础仍是 10 人、装维 7 营销 3。分支内唯一变化是可调度人头上限（装维 7→8、总 10→11），以及随之放宽的跨网格支援评估前提。不变化的是经营判断：五项指数（装维量 88%、装维结果 31%、营销量 102%、营销结果 49%、质量 61%）是结果与质量事实，不由人头数量推出；场景预置根因与容量结论仍只算场景证据（RULE-06），不因增员被证实或推翻；“当前证据不支持直接增员”这一结论也不变，本轮增员是假设不是建议。仍然缺证据：新人可用工时、技能与资质（能否独立承接复杂家庭网络标准包）、上岗与带教时限、现有 7 人的负荷与保障底线、任务工时定额。新人数字不补造（RULE-06）；缺负荷与技能证据时既不能宣称够用，也不能给到人派单（RULE-02）。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省 / 某市 / 某区县 / 家庭业务A网格"
+  },
+  "decision": {
+    "title": "增员假设只改人头上限，不改经营判断，新人不可派单",
+    "summary": "假设分支内装维 8 人、总 11 人；基础事实保持 10 人 7:3。判断层面无任何变化，证据缺口无任何减少，新人因工时技能未知不可承接任务。",
+    "headcount_action": "假设分支：装维8人/总11人（基础事实仍为10人，不覆盖）",
+    "task_action": "分支内不输出到人安排（新人无工时与技能证据）",
+    "support_action": "暂不申请跨网格支援；增员本身不构成缺口证据",
+    "evidence_status": "insufficient"
+  },
+  "signals": [
+    {"signal_id": "SIG-OPS-VOLUME", "label": "装维业务量指数", "value": 0.88, "benchmark": 1, "display": "88%"},
+    {"signal_id": "SIG-OPS-RESULT", "label": "装维结果指数", "value": 0.31, "benchmark": 1, "display": "31%"},
+    {"signal_id": "SIG-MKT-VOLUME", "label": "营销业务量指数", "value": 1.02, "benchmark": 1, "display": "102%"},
+    {"signal_id": "SIG-MKT-RESULT", "label": "营销结果指数", "value": 0.49, "benchmark": 1, "display": "49%"},
+    {"signal_id": "SIG-QUALITY", "label": "质量指数", "value": 0.61, "benchmark": 1, "display": "61%"}
+  ],
+  "root_causes": [],
+  "people": [],
+  "actions": [],
+  "verification": [
+    {"checkpoint": "T", "metrics": ["任务执行", "有效订单", "一次竣工"]},
+    {"checkpoint": "T+1", "metrics": ["积分兑现", "质量结果", "早期保有"]},
+    {"checkpoint": "T+2", "metrics": ["撤单", "离网", "最终在网"]}
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为假设分支，仅说明判断变化与证据缺口，不含任何增员或人员调整建议。",
+    "allowed_actions": ["accept", "adjust", "reject"]
+  },
+  "evidence_drawer": {
+    "summary": "规则取自知识库读取 TELECOM-DEMO-RULES-V06（global path=电信经营演示规则v06/telecom-demo-rules.md，chunks=3）；业务数字全部取自当前场景 JSON（TELECOM-DEMO-A-BRANCH-001）。假设分支按 RULE-04 建立，不覆盖 10 人基线；新人无工时技能证据，按 RULE-02 不宣称够用、不给到人行动。",
+    "sections": [
+      {
+        "section_id": "EV-RULE-04",
+        "title": "规则依据：假设与修订（TELECOM-DEMO-RULES-V06#chunk 2）",
+        "content": "RULE-04 原文：“What-if 创建独立假设分支，不覆盖基础事实……缺少可用工时则明确待确认。”本轮将增员作为独立分支，基础 10 人 7:3 保持不动。"
+      },
+      {
+        "section_id": "EV-RULE-02",
+        "title": "规则依据：证据门（TELECOM-DEMO-RULES-V06#chunk 1）",
+        "content": "RULE-02 原文：“人员、任务、结果或积分事实不足时返回 blocked，不点名、不输出到人行动……没有负荷、技能、时限、保障底线证据，不能宣称人员够用。”新人可用工时与技能均未知，故分支内不派单、不宣称够用。"
+      },
+      {
+        "section_id": "EV-RULE-06",
+        "title": "规则依据：事实优先（TELECOM-DEMO-RULES-V06#chunk 3）",
+        "content": "RULE-06：RAG 仅解释规则，不创造数字或人员；场景内预置根因与容量结论只能称场景证据。本轮未给新人编造任何工时、产能或技能数值。"
+      },
+      {
+        "section_id": "EV-GAP",
+        "title": "仍然缺的证据（增员并不能消除其中任何一项）",
+        "content": "G1 新人可用工时与上岗时限；G2 新人技能资质（能否独立承接复杂家庭网络标准包）；G3 现有 7 人负荷与保障底线；G4 复杂任务工时定额；G5 到人业务事件与质量扣减。"
+      },
+      {
+        "section_id": "EV-NOCHANGE",
+        "title": "判断不变的原因",
+        "content": "五项指数是量、结果、质量三个口径的现状事实，人手数量不是它们的自变量；人员匹配问题（机会承接与转化）与装维结果落差都不因多一人而自动消除，需按 RULE-03 先核结构匹配。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "新人的可用工时、上岗时限与可独立承接的任务类型能否给出？",
+    "现有 7 名装维的在途负荷与修障、应急保障预留能否导出？",
+    "复杂家庭网络标准包的工时定额是否已有核定数据？"
+  ],
+  "state_updates": {
+    "last_intent": "增员假设：建独立分支，说明判断不变与证据缺口不减",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": true,
+    "increment_revision": true
+  }
+}

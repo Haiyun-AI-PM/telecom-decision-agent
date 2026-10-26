@@ -1,0 +1,82 @@
+{
+  "response_mode": "delta",
+  "answer_text": "营销 C 本周不可用属约束变更（TELECOM-DEMO-RULES-V06#chunk 2 的 RULE-04）：修订候选须排除 C，后续追问继承该约束，不恢复 C 的旧安排。必须撤回三项：① 原建议中“营销 C 承接 7 条高意向机会”的到人安排；② “营销 A 带营销 B、营销 C 复盘话术”分工里涉及 C 的部分；③ 场景容量结论“3 名营销可覆盖当前机会池”——约束期内可用营销为 2 人，该结论失效，且它本就只是场景预置证据（RULE-06）。不把 C 名下 7 条机会自动全转营销 A：A 仅有 4 条事件的明细，其负荷、可用工时与承接上限未知，全转等于用假设替代负荷证据，违反 RULE-02 与 RULE-04。接下来核实：C 不可用的起止时间与是否全部任务不可用；C 名下 7 条机会的客户时限与服务承诺（保障底线）；A、B 当前负荷与可用工时；B 是否具备同产品同客群资质；本周必须闭环的机会清单。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省 / 某市 / 某区县 / 家庭业务A网格"
+  },
+  "decision": {
+    "title": "营销C本周不可用：撤回涉C安排，不自动全转营销A",
+    "summary": "按约束变更处理，排除 C 并继承该约束。撤回三项涉 C 或依赖 3 人可用的结论；C 名下 7 条机会不自动转派，先核实 C 的不可用范围、机会时限与 A/B 实际负荷。",
+    "headcount_action": "人员总量事实仍为10人7:3，但约束期内可用营销为2人",
+    "task_action": "撤回涉C到人安排，机会不自动全转营销A，先核实负荷与资质",
+    "support_action": "暂不申请跨网格支援；约束期内不新增人员动作",
+    "evidence_status": "insufficient"
+  },
+  "signals": [
+    {"signal_id": "SIG-OPS-VOLUME", "label": "装维业务量指数", "value": 0.88, "benchmark": 1, "display": "88%"},
+    {"signal_id": "SIG-OPS-RESULT", "label": "装维结果指数", "value": 0.31, "benchmark": 1, "display": "31%"},
+    {"signal_id": "SIG-MKT-VOLUME", "label": "营销业务量指数", "value": 1.02, "benchmark": 1, "display": "102%"},
+    {"signal_id": "SIG-MKT-RESULT", "label": "营销结果指数", "value": 0.49, "benchmark": 1, "display": "49%"},
+    {"signal_id": "SIG-QUALITY", "label": "质量指数", "value": 0.61, "benchmark": 1, "display": "61%"}
+  ],
+  "root_causes": [],
+  "people": [],
+  "actions": [],
+  "verification": [
+    {"checkpoint": "T", "metrics": ["任务执行", "有效订单", "一次竣工"]},
+    {"checkpoint": "T+1", "metrics": ["积分兑现", "质量结果", "早期保有"]},
+    {"checkpoint": "T+2", "metrics": ["撤单", "离网", "最终在网"]}
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮为约束变更下的修订，只给撤回项与核实清单，不含到人重排建议。",
+    "allowed_actions": ["accept", "adjust", "reject"]
+  },
+  "evidence_drawer": {
+    "summary": "规则取自知识库读取 TELECOM-DEMO-RULES-V06（chunks=3）；业务数字取自当前场景 JSON（TELECOM-DEMO-A-BRANCH-001）。C 不可用按 RULE-04 作约束变更处理，涉 C 候选一律排除；A 与 B 的负荷无证据，按 RULE-02 不派单。",
+    "sections": [
+      {
+        "section_id": "EV-RULE-04",
+        "title": "规则依据：假设与修订（TELECOM-DEMO-RULES-V06#chunk 2）",
+        "content": "RULE-04 原文：“人员不可用是约束变更，修订候选中排除该人员；后续追问继承约束，不恢复旧安排。缺少可用工时则明确待确认。”"
+      },
+      {
+        "section_id": "EV-RULE-02",
+        "title": "规则依据：证据门（TELECOM-DEMO-RULES-V06#chunk 1）",
+        "content": "RULE-02 要求人员、任务、结果或积分事实不足时不点名、不输出到人行动。营销 A 虽有 4 条事件明细，但无负荷与可用工时字段，承接上限不可推断，故不给“全转 A”的安排。"
+      },
+      {
+        "section_id": "EV-RULE-06",
+        "title": "规则依据：事实优先（TELECOM-DEMO-RULES-V06#chunk 3）",
+        "content": "场景 capacity_check 称“3 名营销可覆盖当前机会池”，属场景预置结论，仅能称场景证据。约束期内可用营销为 2 人，该结论失效，不得作为排除缺口的依据。"
+      },
+      {
+        "section_id": "EV-WITHDRAW",
+        "title": "撤回项清单（场景事实）",
+        "content": "原场景给营销 C 的动作是“聚焦画像明确的家庭组网机会，按统一话术完成触达”，其承接 7 条仅 1 条有效订单；营销 A 承接 5 条。撤回：C 的承接安排、A 带 C 复盘话术、3 人可覆盖机会池的容量结论。"
+      },
+      {
+        "section_id": "EV-NEXT",
+        "title": "核实动作（补齐后可重排）",
+        "content": "N1 C 不可用起止与范围；N2 C 名下 7 条机会的客户时限与承诺；N3 A/B 在途负荷与可用工时；N4 B 的同产品同客群资质；N5 本周必须闭环的机会条目；N6 机会池 18 条的分配与触达记录。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "营销 C 本周不可用的起止时间与范围，是否全部任务都不可用？",
+    "营销 A、营销 B 当前的在途客户数与可用工时能否给出？",
+    "营销 C 名下 7 条机会里，哪些有不可延后的客户承诺？"
+  ],
+  "state_updates": {
+    "last_intent": "约束变更：营销C本周不可用，撤回涉C安排并列出核实动作",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}

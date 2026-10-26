@@ -1,0 +1,57 @@
+{
+  "test_id": "telecom-demo-aggregate-only",
+  "status": "test_input_not_executed",
+  "notice": "脱敏教学样例，仅聚合数据，不提供个人级证据",
+  "organization": {
+    "name": "家庭业务A网格",
+    "level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "period": "本期",
+    "headcount": 10,
+    "role_structure": {
+      "operations": 7,
+      "marketing": 3
+    }
+  },
+  "signals": [
+    {
+      "signal_id": "SIG-OPS-VOLUME",
+      "label": "装维业务量指数",
+      "value": 0.88,
+      "benchmark": 1.0,
+      "display": "88%"
+    },
+    {
+      "signal_id": "SIG-OPS-RESULT",
+      "label": "装维结果指数",
+      "value": 0.31,
+      "benchmark": 1.0,
+      "display": "31%"
+    },
+    {
+      "signal_id": "SIG-MKT-VOLUME",
+      "label": "营销业务量指数",
+      "value": 1.02,
+      "benchmark": 1.0,
+      "display": "102%"
+    },
+    {
+      "signal_id": "SIG-MKT-RESULT",
+      "label": "营销结果指数",
+      "value": 0.49,
+      "benchmark": 1.0,
+      "display": "49%"
+    },
+    {
+      "signal_id": "SIG-QUALITY",
+      "label": "质量指数",
+      "value": 0.61,
+      "benchmark": 1.0,
+      "display": "61%"
+    }
+  ],
+  "available_evidence": "仅组织岗位人数与经营指标；没有人员名单、技能、负荷、可用工时、任务分配或个人事件。"
+}

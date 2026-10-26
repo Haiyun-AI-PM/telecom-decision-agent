@@ -1,0 +1,73 @@
+{
+  "response_mode": "delta",
+  "answer_text": "94.34 = 90.00（复杂家庭网络标准包竣工）+ 4.34（主设备激活调测）；两项 signed_points 相加等于台账 total 94.34，场景内无负项，故该账期不存在扣减项（是否存在未记入的账期调整需确认，本轮标待确认）。能证明：装维 A 在本账期有两笔已记分履约事件，事件级合计与台账总数自洽；其中 90 分对应复杂家庭网络标准包竣工，说明场景记录中存在该类任务的完成记录，属记录层面事实，不含工时与质量评分。不能证明：① A 的可用工时、在途负荷、一次竣工与返工质量；② 94.34 在同岗中偏高或偏低——装维 7 人只有 A 有事件明细、其余 6 人仅有总积分，分布未知，7 人总积分中位数 33.15 是跨人汇总，不可反推个人（TELECOM-DEMO-RULES-V06#chunk 1 RULE-01）；③ 不能据此给 A 追加任务或改派（RULE-02）；④ 94.34 属场景预置数据，不能当作“匹配问题已确认”的独立证据（#chunk 3 RULE-06）。",
+  "organization_scope": {
+    "analysis_level": "grid",
+    "province": "某省",
+    "city": "某市",
+    "county": "某区县",
+    "grid": "家庭业务A网格",
+    "display_path": "某省 / 某市 / 某区县 / 家庭业务A网格 / 装维A"
+  },
+  "decision": {
+    "title": "94.34 可复算自两笔事件，但不足以支撑个人结论",
+    "summary": "算术闭合：90.00+4.34=94.34，与台账总数一致。该分数只说明两笔履约事件的记账结果，不含工时、负荷与质量信息，不能用于判断个人产能或作为重排依据。",
+    "headcount_action": "不涉及人员数量判断",
+    "task_action": "不追加任务、不改派（缺负荷与质量证据）",
+    "support_action": "不涉及跨网格支援",
+    "evidence_status": "limited"
+  },
+  "signals": [
+    {"signal_id": "SIG-QUALITY", "label": "质量指数", "value": 0.61, "benchmark": 1, "display": "61%"}
+  ],
+  "root_causes": [],
+  "people": [],
+  "actions": [],
+  "verification": [
+    {"checkpoint": "T", "metrics": ["任务执行", "有效订单", "一次竣工"]},
+    {"checkpoint": "T+1", "metrics": ["积分兑现", "质量结果", "早期保有"]},
+    {"checkpoint": "T+2", "metrics": ["撤单", "离网", "最终在网"]}
+  ],
+  "feedback": {
+    "status": "none",
+    "message": "本轮仅做台账复算与证据边界说明，不含人员调整建议。",
+    "allowed_actions": ["accept", "adjust", "reject"]
+  },
+  "evidence_drawer": {
+    "summary": "计算与数字全部取自当前场景 JSON（TELECOM-DEMO-A-BRANCH-001）的 OPS-A 台账：points=94.34、total=94.34，事件 90.00 与 4.34。规则取自知识库读取 TELECOM-DEMO-RULES-V06（chunks=3）。",
+    "sections": [
+      {
+        "section_id": "EV-CALC",
+        "title": "复算过程",
+        "content": "90.00 + 4.34 = 94.34，与 total 字段 94.34 相等；事件 signed_points 无负值，故无扣减项。账期调整（如有）在场景中未见记录，标待确认，不补造。"
+      },
+      {
+        "section_id": "EV-PROVE",
+        "title": "能证明的范围",
+        "content": "两笔已记分事件的类别与分值；事件级合计与台账总数自洽，记账无矛盾；存在一次复杂家庭网络标准包竣工的完成记录。"
+      },
+      {
+        "section_id": "EV-NOPROVE",
+        "title": "不能证明的范围",
+        "content": "工时、在途负荷、一次竣工率与返工；个人产能高低（同岗仅 1 人有明细，中位数 33.15 为跨人汇总，规则 RULE-01 禁止据此推断个人）；是否可以承接更多任务；网格人力是否充足；匹配问题是否成立。"
+      },
+      {
+        "section_id": "EV-RULE",
+        "title": "规则依据",
+        "content": "RULE-01（#chunk 1）：积分解释须回到个人业务事件、当前负荷和质量证据，不得只靠平均积分推断个人。RULE-02（#chunk 1）：证据不足不点名、不到人行动。RULE-06（#chunk 3）：场景预置结论只能称场景证据。"
+      }
+    ]
+  },
+  "suggested_questions": [
+    "该账期是否存在未记入台账的账期调整项？",
+    "装维 A 的在途工单、可用工时与一次竣工率能否导出？",
+    "其余 6 名装维的事件明细能否补齐，以判断 94.34 的相对位置？"
+  ],
+  "state_updates": {
+    "last_intent": "解释装维A 94.34 的台账构成与证据边界",
+    "selected_person": null,
+    "feedback_state": "none",
+    "create_branch": false,
+    "increment_revision": true
+  }
+}
